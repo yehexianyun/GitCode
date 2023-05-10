@@ -7,4 +7,4 @@ folder_path = r'G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\2021\\文本
 data = pd.DataFrame()
 file_names = os.listdir(folder_path)
 data['code'] = 
-a = [name[:,5] for name in file_names]
+a = [name[:,5] for name in range(file_names]

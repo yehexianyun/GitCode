@@ -5,6 +5,8 @@ import os
 folder_path = r'G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\文本'
 # 获取文件夹中所有文件名
 data = pd.DataFrame()
+data['code'] = []
 file_names = os.listdir(folder_path)
-data['code'] = 
-a = [name[:,5] for name in file_names]
+for i in range(len(file_names)):
+    data['code'][i] = file_names[i]
+
