@@ -23,6 +23,15 @@ https://peps.python.org/pep-0008/
 #使用Decimal模块进行精确计算
 from decimal import Decimal
 Decimal('0.1') + Decimal('0.2') # Decimal('0.3')，一定使用字符串表示数字
+# 三元运算符
+value_if_true if condition else value_if_false
+# 一行代码实现列表去重
+list(set(l))
+# 一行代码实现列表翻转
+l[::-1]
+# 一行代码实现字符串翻转
+s[::-1]
+
 
 
 
