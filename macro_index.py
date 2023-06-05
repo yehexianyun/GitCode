@@ -13,7 +13,7 @@ file_names = os.listdir(folder_path)
 data['path'] = file_names
 data['code'] = data['path'].apply(lambda x: x[:6])
 data['date'] = data['path'].apply(lambda x: x[7:17])
-data['macro_index'] = np.nan
+data.loc[:,'macro_index'] = ""
 data.drop
 with open("G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\宏观词汇表2.txt",'r',encoding='utf-8') as f:
     macro_word = f.read()
@@ -26,13 +26,14 @@ with open("G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\消极词汇.txt"
     neg_word = f.read()
     neg_word_list = neg_word.split('\n')
 
-
+macro_index_list = list()
 #分句
 for file_name in os.listdir(folder_path):
     if file_name.endswith('.txt'):
         with open(os.path.join(folder_path, file_name), 'r',encoding = 'utf-8') as f:
             # 在这里进行文件操作
             text = f.read()
+            a =  0
             text = text.replace('\n', '')
             text_list = text.split('。')
             macro_sense = list(range(len(text_list)))
@@ -59,7 +60,9 @@ for file_name in os.listdir(folder_path):
                 else:
                     macro_sense[i] = 0
             macro_sense_num = sum(macro_sense)
-            data['macro_index'][i] = macro_sense_num
-
+            macro_index_list = macro_index_list + [macro_sense_num]
+            #df = data[['code','macro_index']]
+            #df.loc[8484]['macro_index'] = macro_sense_num
             pass
+data['macro_index'] = macro_index_list        
 
