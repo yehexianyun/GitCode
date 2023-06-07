@@ -64,5 +64,6 @@ for file_name in os.listdir(folder_path):
             #df = data[['code','macro_index']]
             #df.loc[8484]['macro_index'] = macro_sense_num
             pass
-data['macro_index'] = macro_index_list        
+data['macro_index'] = macro_index_list   
+data.to_csv('G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\宏观指数2021.csv',encoding = 'utf-8-sig')     
 
