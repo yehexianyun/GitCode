@@ -82,7 +82,7 @@ def print_top_words(model, feature_names, n_top_words):
 
 n_top_words = 20
 
-tf_feature_names = tf_vectorizer.get_feature_names()
+tf_feature_names = tf_vectorizer.get_feature_names_out()
 print_top_words(lda, tf_feature_names, n_top_words)
 
 import pyLDAvis
