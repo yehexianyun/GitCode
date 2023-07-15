@@ -19,16 +19,15 @@ for i in enddate:
     data_new = data_new.reset_index(drop=True)
     #提取第一列的数值并去重
     fund = data_new['MasterFundCode'].drop_duplicates()
-    #建立空字典
-    dict_fund = {}
-    #对fund每个值进行循环
-    for j in fund:      
-        #字典key为j，value为set
-        dict_fund[j] = set(data_new[data_new['MasterFundCode'] == j]['Symbol'].drop_duplicates())
-       # 将字典中的所有列表取出来，添加到一个大列表中
-    all_lists = []
-    for value in dict_fund:
-        all_lists.append(list(dict_fund[value]))
+    dict_fund = {
+        j: set(
+            data_new[data_new['MasterFundCode'] == j][
+                'Symbol'
+            ].drop_duplicates()
+        )
+        for j in fund
+    }
+    all_lists = [list(value_) for value_ in dict_fund.values()]
     #新建一个空矩阵
     #矩阵行数与列数为j
     #矩阵元素为0
