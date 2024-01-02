@@ -138,7 +138,7 @@ pyLDAvis.sklearn.prepare(lda, tf, tf_vectorizer)
 import matplotlib.pyplot as plt
 
 plexs = []
-n_max_topics = 9
+n_max_topics = 21
 for i in range(1,n_max_topics):
     print(i)
     lda = LatentDirichletAllocation(n_components=i, max_iter=50,
@@ -148,7 +148,7 @@ for i in range(1,n_max_topics):
     plexs.append(lda.perplexity(tf))
 
 
-n_t=8#区间最右侧的值。注意：不能大于n_max_topics
+n_t=21#区间最右侧的值。注意：不能大于n_max_topics
 x=list(range(1,n_t))
 plt.plot(x,plexs[1:n_t])
 plt.xlabel("number of topics")
