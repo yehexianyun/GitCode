@@ -40,7 +40,7 @@ df3 = pd.DataFrame(data['title'].astype(str))
 data.to_csv("G:\\12_Database\\LDA_data.csv")
 df3 = pd.read_csv("G:\\12_Database\\LDA_data.csv")
 #将df3中的title列转换为str类型
-df3['title'] = df3['title'].astype(str)
+df3['title'] = df3['title'].astype(str) #
 #LDA model
 import gensim
 from gensim import corpora
@@ -114,12 +114,13 @@ n_top_words = pickle.load(open("n_top_words.pkl", "rb"))
 tf = pickle.load(open("tf.pkl", "rb"))
 '''
 import pyLDAvis
-import pyLDAvis.sklearn
-import gensim
-pyLDAvis.enable_notebook()
-pic = pyLDAvis.sklearn.prepare(lda, tf, tf_vectorizer)
+
+def new_func(tf_vectorizer, tf, lda):
+    return pyLDAvis.sklearn.prepare(lda, tf, tf_vectorizer)
+
+pic = new_func(tf_vectorizer, tf, lda)
 pyLDAvis.display(pic)
-pyLDAvis.save_html(pic, 'lda_pass'+str(n_topics)+'.html')
+pyLDAvis.save_html(pic, f'lda_pass{n_topics}.html')
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
