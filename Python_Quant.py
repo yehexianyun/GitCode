@@ -36,7 +36,7 @@ zgpa_signal=zgpa_signal.fillna(0.0)
 zgpa_signal['signal']=np.where(zgpa_signal['diff']>0,0,1)
 #接下来，根据交易信号的变化进行下单
 #一般情况下，在A股市场，买入或卖出至少为100股，即1手
-zgpa_signal['order']=zgpa_signal['signal'].diff()*100
+zgpa_signal['order']=zgpa_signal['signal'].diff()*100 
 #检查下单情况
 zgpa_signal.head()
 
