@@ -1,3 +1,4 @@
+# sourcery skip: remove-redundant-pass
 import pandas as pd
 import numpy as np
 import os
@@ -47,9 +48,9 @@ for file_name in os.listdir(folder_path):
                         x = x + 1
                 if x > 0:
                     if word in pos_word_list:
-                        y = y + 1
+                        y += 1
                     elif word in neg_word_list:
-                        z = z + 1
+                        z += 1
                 else:
                     pass
                 macro_index = (y - z) * x
@@ -64,6 +65,6 @@ for file_name in os.listdir(folder_path):
             #df = data[['code','macro_index']]
             #df.loc[8484]['macro_index'] = macro_sense_num
             pass
-data['macro_index'] = macro_index_list   
+data['macro_index'] = macro_index_list
 data.to_csv('G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\宏观指数2021.csv',encoding = 'utf-8-sig')     
 
