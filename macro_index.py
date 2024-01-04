@@ -4,9 +4,9 @@ import numpy as np
 import os
 import jieba
 # 指定文件夹路径
-folder_path = r'G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\文本'
+folder_path = r'E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\文本'
 
-jieba.load_userdict('G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\用户词典.txt')
+jieba.load_userdict('E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\用户词典.txt')
 # 获取文件夹中所有文件名
 data = pd.DataFrame()
 data['code'] = []
@@ -16,14 +16,14 @@ data['code'] = data['path'].apply(lambda x: x[:6])
 data['date'] = data['path'].apply(lambda x: x[7:17])
 data.loc[:,'macro_index'] = ""
 data.drop
-with open("G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\宏观词汇表2.txt",'r',encoding='utf-8') as f:
+with open("E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\宏观词汇表2.txt",'r',encoding='utf-8') as f:
     macro_word = f.read()
     macro_word_list = macro_word.split('\n')
-with open("G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\积极词汇.txt",'r',encoding='utf-8') as f:
+with open("E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\积极词汇.txt",'r',encoding='utf-8') as f:
     pos_word = f.read()
     pos_word_list = pos_word.split('\n')
 
-with open("G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\消极词汇.txt",'r',encoding='utf-8') as f:
+with open("E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\消极词汇.txt",'r',encoding='utf-8') as f:
     neg_word = f.read()
     neg_word_list = neg_word.split('\n')
 
@@ -66,5 +66,5 @@ for file_name in os.listdir(folder_path):
             #df.loc[8484]['macro_index'] = macro_sense_num
             pass
 data['macro_index'] = macro_index_list
-data.to_csv('G:\\12_Database\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\宏观指数2021.csv',encoding = 'utf-8-sig')     
+data.to_csv('E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\宏观指数2021.csv',encoding = 'utf-8-sig')     
 
