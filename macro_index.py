@@ -4,7 +4,8 @@ import numpy as np
 import os
 import jieba
 # 指定文件夹路径
-folder_path = r'E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\文本'
+year = input("输入年份:")
+folder_path = "E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\"+year+"\\文本\\文本"
 
 jieba.load_userdict('E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\用户词典.txt')
 # 获取文件夹中所有文件名
@@ -66,5 +67,5 @@ for file_name in os.listdir(folder_path):
             #df.loc[8484]['macro_index'] = macro_sense_num
             pass
 data['macro_index'] = macro_index_list
-data.to_csv('E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\2021\\文本\\宏观指数2021.csv',encoding = 'utf-8-sig')     
+data.to_csv('E:\\论文工作区\\MacroCognition\\CMDA_管理层讨论与分析_ALL\\宏观指数'+year+'.csv',encoding = 'utf-8-sig')     
 
